@@ -13,6 +13,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    render 'amazon_items'
   end
 
   private
