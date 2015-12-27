@@ -1,0 +1,28 @@
+<div class="panel panel-info">
+  <!-- Default panel contents -->
+  <div class="panel-heading">みんなのhaveランキング</div>
+      <div class=container>
+        <table class="basic">
+          <thead>
+            <tr>
+              <th>順位</th>
+              <th>商品名</th>
+              <th>haveの数</th>
+            </tr>
+          </thead>
+          <tbody>
+              <% @have.each do |item_id, count| %>
+            <tr>
+              <th></th>
+              <td>
+              <a href= <%= Item.find(item_id).detail_page_url %>>
+                <%= Item.find(item_id).title %> </a>
+              </td>
+              <td><%= count %></td>
+            </tr>
+              <% end %>
+          </tbody>
+        </table>
+      </div>
+
+</div>

@@ -37,3 +37,25 @@ img {
 .gravatar {
   border-radius: 100%;
 }
+
+table.basic {
+   width: 100%;
+   border-collapse: separate;
+   font-size: 1em;
+   counter-reset: ranking;  /* ※A */
+}
+
+table.basic th{
+  padding: 6px;
+  text-align: left;
+  vertical-align: top;
+}
+
+table.basic td{
+  padding: 6px;
+}
+
+table.basic tbody th:before {
+   counter-increment: ranking;         /* ※B */
+   content: "第" counter(ranking) "位"; /* ※C */
+}

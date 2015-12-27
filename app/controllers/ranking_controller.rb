@@ -1,10 +1,9 @@
 class RankingController < ApplicationController
-  def ranking
-    if logged_in?
-      @have_rank = item_haved.order
-    　@have_ranking = Post.find(:all,:order => "ranking DESC" )
-      @micropost = current_user.microposts.build
-      @have_ranking = current_user.feed_items.includes(:user).order(created_at: :desc)
-    end
+  def want
+    @want = Want.group(:item_id).order('count_item_id desc').limit(10).count(:item_id)
+  end
+  
+  def have
+    @have = Have.group(:item_id).order('count_item_id desc').limit(10).count(:item_id)
   end
 end
